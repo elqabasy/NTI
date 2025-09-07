@@ -1,0 +1,25 @@
+Title: Make Documentation and Analysis of what we found.
+
+
+
+
+
+
+How much internal data (like employee names or emails) was exposed?
+	Sol.
+	- For this, i have a ./full-recon.json, contains all resullt (-b all) engines
+	- Now, i will make a totals for emails, ips, hosts, asns
+	- Results, Bom!
+	
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/part4]
+	└─$ ./statistics.sh 
+	TOTALS:
+	  Emails:  20
+	  IPAdd.:  59
+	  Hosts.:  2338
+	  ASNS..:  11
+
+	
+Could an attacker use any of this data in phishing or social engineering attacks?
+	- Why Not? Nothing is possible!
+

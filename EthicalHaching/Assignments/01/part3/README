@@ -1,0 +1,55 @@
+Title: Explain Part3 in detail
+
+
+
+
+How did using multiple sources affect the results?
+	Sol.
+	- we will make a test incrementaly, like appending one engine for the test
+		ex: 
+		recon#1 -b bing
+		recon#2 -b bing,shodan
+		recon#3 -b bing,shodan,duckduckgo
+		and so on
+		# result_format=$sources_count.json
+		
+	- then make a multiple-sources-affect.statistics
+		format:
+		source_count, founded_hosts_count, founded_ips_count, founded_emails_count
+
+	- then compare results and sort them and we have to conclude that,
+		* as the number of sources increase, the number of results increase
+
+	Lab:
+	
+	But Unfor., i don't have all api keys; so the statistics will not be accurate.
+	
+		
+	
+	
+Are there duplicate entries across engines? How can you filter or clean that?
+	Sol.
+	- By default, theHarvester automaticly deduplicate result, but it may happen
+		with tools like sublist3r, subfinder, and amass.
+
+		What about solution for those tools?
+		Real Example:
+		
+		┌──(kali㉿kali)-[~/…/01/part3/deduplication/recon]
+		└─$ subfinder -all -d $(cat ../../../target) > subdomains.dup
+
+		┌──(kali㉿kali)-[~/…/01/part3/deduplication/recon]
+		└─$ cat subdomains.dup| wc -l
+		1708
+
+		┌──(kali㉿kali)-[~/…/01/part3/deduplication/recon]
+		└─$ sort -u ./subdomains.dup > subdomains.nodup
+		                                                                             
+		┌──(kali㉿kali)-[~/…/01/part3/deduplication/recon]
+		└─$ wc -l ./subdomains.nodup 
+		1699 ./subdomains.nodup
+
+		WE HAVE DEPLICATED 9 DOMAINS.
+
+
+DONE!

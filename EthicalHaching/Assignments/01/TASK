@@ -1,0 +1,45 @@
+Step-by-Step Instructions:
+
+
+Part 1: Introduction and Tool Familiarization
+	Open your Kali terminal.
+	Run the following command to ensure theHarvester is installed and updated:
+	sudo apt update && sudo apt install theharvester
+	theHarvester -h
+
+
+Review the help menu to understand the various flags.
+
+Part 2: Basic Usage
+	Run theHarvester against a public domain of your choice (not a real target you don't have permission to test).
+	For example: tesla.com, microsoft.com, huawei.com
+	theHarvester -d tesla.com -b bing -l 100
+	Questions to answer:
+	What types of information did you find?
+	List all emails and subdomains you retrieved.
+	Which source engine gave the most useful results?
+
+Part 3: Multi-source Data Collection
+	Run the tool again using multiple sources and save the results:
+	theHarvester -d tesla.com -b google,bing -l 200 -f tesla_report.html
+	 Questions to answer:
+	How did using multiple sources affect the results?
+	Are there duplicate entries across engines? How can you filter or clean that?
+
+Part 4: Analysis and Documentation
+	Based on your findings, assess:
+	How much internal data (like employee names or emails) was exposed?
+	Could an attacker use any of this data in phishing or social engineering attacks?
+
+
+
+Final Report Must Include:
+	Target Domain
+	Tools and Commands Used
+	List of Emails / Subdomains / IPs Found
+	Screenshots of Terminal Output
+	Brief analysis: What did you learn?
+
+Bonus Challenges (Optional for Advanced Students)
+	Subdomain Enumeration:
+	Compare theHarvester results with another tool like Sublist3r or amass. Do they match?

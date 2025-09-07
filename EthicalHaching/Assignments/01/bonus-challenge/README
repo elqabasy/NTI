@@ -1,0 +1,36 @@
+Title.: Bonus challenge details.
+Target: rlp.de
+Scope.: *.rlp.de
+
+
+Compare theHarvester results with another tool like Sublist3r or amass. Do they match?
+	SOl.
+	- Before we start we have to put a baseline for all tools,
+		we will compare only the output of subdomains not anything other.
+
+
+	- Second, we have to save the outputs in this format: tool_name.recon
+
+	- Thisrt, we have to count every subdomains for every tool, after doing
+		Filteration on the outputs
+
+	- Then make a table that show differences and duplicates
+	
+
+
+	Now we have a statistic:
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/bonus-challenge]
+	└─$ wc -l ./subfinder sublist3r theHarvester 
+	  2338 theHarvester
+	  1641 ./subfinder
+	    40 sublist3r
+	  
+	  4019 total
+	
+
+	- And when combining them together we got:
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/bonus-challenge]
+	└─$ cat ./subfinder sublist3r theHarvester| sort -u | wc -l
+	3391
+
+	[@] Thats very powerfull!

@@ -1,0 +1,46 @@
+Title.: Assignment#01
+Author: Mahros AL-Qabasy
+Target: rlp.de
+Scope.: *.rlp.de
+Descr.: https://www.openbugbounty.org/bugbounty/CERT_rlp/
+
+
+
+TaskMap:
+
+
+
+
+
+
+
+Part01: Introduction and Tool Familiarization
+	- theHarvester is installed, theHarvester 4.8.2
+	
+	┌──(kali㉿kali)-[~/…/NTI/EthicalHaching/Assignments/01]
+	└─$ theHarvester --help
+
+Part02: Basic Usage
+	- I founded: IP Addresses, Emails and Subdomains.
+	- All Emails and Subdomains exists in: ./recon/th-multiple-source.json
+	- See ./most-useful-engine/README, I Have investigated this in detail
+		THIS IS VERY INFORMATIVE and Complex.
+	
+Part03: Multi-source Data Collection
+	- See ./part3/README, i have explained it.
+	
+Part04: Analysis and Documentation
+	-  See ./part4/README, ihave made what you want.
+
+
+
+Final Report at ./REPORT
+
+
+
+Bonus Challenge:
+	- See ./bonus-challenge/README
+
+
+
+DONE!

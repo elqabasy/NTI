@@ -1,0 +1,85 @@
+Title: Test The most useful engine
+Target: rlp.de
+Scope: *.rlp.de
+Description: we will iterate on all ./sources, and save results to 
+
+
+SEE DIRECTORY MAP
+.map
+├── paths
+├── README
+├── results
+│   ├── yahoo.json
+│   └── ...
+├── sources
+└── statistics
+
+2 directories, 90 files
+
+
+
+
+# TIP: GO TO `Phase03` to see the final statistics.
+
+
+
+Phase01: Run theHarvester with every engine in ./sources
+	- The output is *.json
+	- We will put their paths into ./paths	
+	
+		┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+		└─$ find ./results -type f -iname "*.json" -exec echo {} >> paths \;
+		
+		┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+		└─$ cat paths | wc -l
+		43
+		
+		
+Phase02: Count Domains, IPs, and emails for every file
+	- iterate through ./paths file and count all entities
+		then output them to ./statistics
+		┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+		└─$ cat ./paths| xargs -I{} sh -c 'path=$1 && echo "$path $(jq -r .hosts[] $path | wc -l) $(jq -r .emails[] $path | wc -l)" >> ./statistics' _ {}
+
+	- Then sort ./statistics files based on count of hosts, and emails
+		┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+		└─$ cat ./statistics| sort  -k2,3 -r | head -n 10
+		./results/rapiddns.json 687 0
+		./results/yahoo.json 59 18
+		./results/urlscan.json 51 0
+		./results/subdomaincenter.json 482 0
+		./results/crtsh.json 424 0
+		./results/hackertarget.json 422 0
+		./results/bing.json 21 1
+		./results/otx.json 155 0
+		./results/duckduckgo.json 11 0
+		./results/certspotter.json 1 0
+		
+	- SO, we conclude that the most important info got from yahoo, 
+		with 18 exposed email addresses
+
+Phase03: Statistics
+	- Top 3 (criteria: exposed hosts based):
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+	└─$ cat statistics | sort -k2  -r -n | head -n 3
+	./results/rapiddns.json 687 0 0
+	./results/subdomaincenter.json 482 0 0
+	./results/crtsh.json 424 0 0
+
+
+	- Top 3 (criteria: exposed emails):
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+	└─$ cat statistics | sort -k3  -r -n | head -n 3
+	./results/yahoo.json 59 18 0
+	./results/bing.json 21 1 0
+	./results/zoomeye.json 0 0 0
+
+
+	- Top 3 (criteria: exposed ip addresses):
+	┌──(kali㉿kali)-[~/…/EthicalHaching/Assignments/01/most-useful-engine]
+	└─$ cat statistics | sort -k4  -r -n | head -n 3
+	./results/otx.json 155 0 39
+	./results/urlscan.json 51 0 35
+	./results/zoomeye.json 0 0 0
+	
+DONE!
