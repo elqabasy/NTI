@@ -1,0 +1,48 @@
+Title: Final Report - Assignment #01
+Author: Mahros AL-Qabasy
+Date: September 8, 2025
+Target: rlp.de
+Scope: *.rlp.de
+Bug Bounty Reference: https://www.openbugbounty.org/bugbounty/CERT_rlp/
+
+---
+
+## Introduction
+This report documents the reconnaissance and information gathering performed on the target domain `rlp.de` as part of the NTI Ethical Hacking course. The assignment focused on using theHarvester and other OSINT tools to enumerate emails, subdomains, IP addresses, and related assets.
+
+## Methodology
+- Installed and verified theHarvester (v4.8.2) on Kali Linux.
+- Explored theHarvester's help menu and options for optimal usage.
+- Conducted scans using multiple search engines and sources.
+- Saved all findings in structured JSON files for analysis.
+- Documented the process and results in dedicated READMEs for each assignment part.
+
+## Findings
+- Discovered a range of IP addresses, emails, and subdomains associated with the target.
+- All emails and subdomains are stored in: `./most-useful-engine/results/*.json`.
+- Multi-source data collection increased the breadth of results, as detailed in `part3/README`.
+- Deduplication was handled by theHarvester, with additional notes on other tools.
+- Summary statistics:
+    - Emails: 20
+    - IP Addresses: 59
+    - Hosts/Subdomains: 2338
+    - ASNs: 11
+
+## Analysis
+- Internal data exposure includes employee emails and infrastructure details.
+- The data collected could be leveraged for phishing or social engineering attacks.
+- TheHarvester proved effective, especially when combining multiple sources.
+- See screenshots in `/assignments/01/media` for terminal outputs and tool results.
+
+## Conclusion
+The assignment objectives were met with a thorough approach to OSINT and documentation. The process was informative and highlighted the importance of multi-source reconnaissance and data validation. All steps, findings, and analysis are available in the respective directories and files for review.
+
+---
+
+For further details, refer to:
+- `most-useful-engine/README`
+- `part3/README`
+- `part4/README`
+- `/assignments/01/media` (screenshots)
+
+DONE!

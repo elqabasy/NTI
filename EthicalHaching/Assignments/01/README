@@ -7,12 +7,19 @@ Descr.: https://www.openbugbounty.org/bugbounty/CERT_rlp/
 
 
 TaskMap:
-
-
-
-
-
-
+  ┌──(kali㉿DESKTOP-K00BQCF)-[/mnt/…/nti/EthicalHaching/Assignments/01]
+	└─$ tree -L1
+	.MAP
+	└── ./TASK
+	├── ./target
+	├── ./README
+	├── ./REPORT
+	├── recon/
+	├── media/
+	├── part3/
+	├── part4/
+	├── bonus-challenge/
+	├── most-useful-engine/
 
 Part01: Introduction and Tool Familiarization
 	- theHarvester is installed, theHarvester 4.8.2
@@ -22,7 +29,7 @@ Part01: Introduction and Tool Familiarization
 
 Part02: Basic Usage
 	- I founded: IP Addresses, Emails and Subdomains.
-	- All Emails and Subdomains exists in: ./recon/th-multiple-source.json
+	- All Emails and Subdomains exists in: ./most-useful-engine/results/*.json
 	- See ./most-useful-engine/README, I Have investigated this in detail
 		THIS IS VERY INFORMATIVE and Complex.
 	
@@ -33,14 +40,11 @@ Part04: Analysis and Documentation
 	-  See ./part4/README, ihave made what you want.
 
 
-
 Final Report at ./REPORT
-
 
 
 Bonus Challenge:
 	- See ./bonus-challenge/README
-
 
 
 DONE!
