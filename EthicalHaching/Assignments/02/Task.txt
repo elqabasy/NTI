@@ -1,0 +1,67 @@
+﻿Windows Backdoor Task
+Part 1: Initial Access & Payload Delivery
+Offensive Concept: Creating and delivering a malicious payload to establish an initial foothold.
+
+
+   1. Create the malware file using msfvenom:
+   msfvenom is a powerful tool for generating payloads. 
+   The windows/meterpreter/reverse_tcp payload is designed to create an encrypted, interactive shell connection back to the attacker's machine.
+
+   2. Use python http.module to open a web server & download the malware:
+   This simulates the delivery mechanism. 
+   Attackers often host the malware on a simple server and rely on social engineering (phishing, drive-by downloads) to trick the user into executing it.
+
+
+
+Part 2: Establishing Control
+Offensive Concept: Setting up the command and control (C2) infrastructure to receive the connection.
+
+
+   1. Open the listener on msfconsole (exploit/multi/handler):
+   This module is the "server" component. 
+   It waits for the payload on the target machine to connect back. 
+   Once the connection is established, the attacker gains a Meterpreter session—an advanced, interactive shell.
+
+
+Part 3: Post-Exploitation
+   Offensive Concept: Maintaining persistence, expanding access, and achieving the attack's goal.
+
+      1. Privilege Escalation
+      * Check your current privileges.
+      * Identify privilege escalation vectors.
+      * Execute an appropriate method to escalate privileges to SYSTEM.
+
+      2. Dump User Credentials
+      * Retrieve NTLM hashes from the system.
+      * Extract plaintext credentials using an appropriate tool.
+
+      3. Create a New User
+      * Add a new user with administrative privileges.
+
+      4. Enable Remote Access (RDP and SSH)
+      * Enable Remote Desktop Protocol (RDP).
+      * Enable SSH.
+      * Add the newly created user to the allowed users for both of them.
+
+      5. Make the Backdoor Persistent
+      * Ensure the backdoor remains active after reboot.
+
+
+DONE TIL HERE.
+Part 4: Covering Tracks
+   Offensive Concept: Removing forensic evidence to hinder detection and attribution.
+
+
+   1. Clear Event Logs
+   meterpreter > clearev
+   
+   2. Delete Exploit Artifacts
+   meterpreter > rm C:\path\to\exploit.exe
+   
+   3. Hide User Creation (Bouns)
+   Hide the newly created user from the login screen
+   Deliverables
+   * Step-by-step documentation of your process.
+   * Screenshots of all steps and successful execution.
+   * Explanation of the tools and techniques used.
+   * Analysis of potential detection and defense mechanisms (Bouns).
